@@ -1,4 +1,4 @@
-![logo](flutter_radio_player_logo.png)
+
 
 # flutter_radio_player
 
