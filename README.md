@@ -84,6 +84,19 @@ import 'package:flutter_radio/flutter_radio.dart';
 
 4. Configure it
 
+* Stream Server Setup
+  As you can see, we pass the connection link to the streaming server ie the online web radio, in our case it is the server **<a href="#">radio king </a>**
+  The link is passed as a parameter to the `playOrPause()` method of **FluterRadio**
+
+````
+ static const streamUrl ="https://www.radioking.com/play/sion-radio";
+FlutterRadio.playOrPause(url: streamUrl);
+````
+
+ This function is the one that starts the radio when the application is launched
+ *MediaNotification* is the plugin that allows us to display a notification of the stream playback.
+ The *showNotification()* method which takes the title of the stream being broadcast as a parameter,...
+  **isPlaying**: indicates the playing status
 ````
   Future<void> audioStart() async {
     await FlutterRadio.audioStart();
@@ -92,19 +105,15 @@ import 'package:flutter_radio/flutter_radio.dart';
   }
 ````
 
-
-
-
-````
- static const streamUrl ="https://www.radioking.com/play/sion-radio";
-FlutterRadio.playOrPause(url: streamUrl);
-````
+* Some other stream processing functions: *stop()* to stop a playback (this is also used to disconnect the stream)
 
 ````
  FlutterRadio.stop();
  FlutterRadio.pause(url: streamUrl);
 ````
 
+
+* Sound management and mainly the volume managed by the *Volume* plugin (at the launch of the application the state of the system sound volume is retrieved)
 
 ````
 void updateVolumes() async {
@@ -114,97 +123,44 @@ void updateVolumes() async {
     currentVol = await Volume.getVol;
   }
 ````
-   Creat a new instance of the player. An `FlutterRadioPlayer` instance can play a
-   single audio stream at a time. To create it, simply call the constructor.
-   However, DO NOT make multiple instances of the service as FRP is using a `FOREGROUND SERVICE` to keep itself
-   live when you minimize the application in `Android`.
-
-````dart
-FlutterRadioPlayer _flutterRadioPlayer = FlutterRadioPlayer();
-````
-
-When you have an FRP instance you may simply call the `init` method to invoke the platform specific player preparation.
-
-```dart
-_flutterRadioPlayer.initPlayer();
+ 
+ * The change in sound volume is linked to the slider marking the volume on the application and vice versa
 ```
+Slider(
+      activeColor: Color.fromARGB(150, 13, 150, 173),
 
-When you have successfully initialized the player, then you can add media sources for the player to play.
-
-```dart
-  final FRPSource frpSource = FRPSource(
-    mediaSources: <MediaSources>[
-      MediaSources(
-        url: "http://icecast.sithira.net:8052/stream", // dummy url
-        description: "Stream with ICY",
-        isPrimary: true,
-        title: "Z Fun hundred",
-        isAac: true
-      ),
-      MediaSources(
-        url: "http://my-url:1025/stream;", // dummy url
-        description: "Hiru FM Sri Lanka",
-        isPrimary: false,
-        title: "HiruFM",
-        isAac: false
-      ),
-    ],
-  );
+      value: currentVol.toDouble(),
+      divisions: maxVol,
+      max: maxVol.toDouble(),
+      min: 0,
+      onChanged: (double d) {
+        setVol(d.toInt());
+        updateVolumes(); 
+        },
+                      )
 ```
-
-As you can see, you have a couple of options for media source as well. One being available to use as the primary media-source.
-if you set a source as **primary** as it will be used to as the default source. But keep in mind that you cant have multiple **primary** data sources.
-
-Once you have the media sources ready you might send the source list to player by calling
-
-```dart
-_flutterRadioPlayer.addMediaSources(frpSource);
-```
-
-In previous versions of FRP, you couldn't keep more than one stream. but with v2, you are able handle more source but only 1 stream will be active at once. Futhermore you will able to add the sources dynamically by calling
-
-```dart
-_flutterRadioPlayer.addMediaSource(myDynamicSource);
-
-```
-
 Besides above-mentioned method, below are the methods that FRP exposes.
 
 * ```stop()``` - Will stop all the streaming audio streams and detaches itself from `FOREGROUND SERVICE`. You need to reinitialize to  use the plugin again,
 
 ```dart
-_flutterRadioPlayer.stop()
+ FlutterRadio.stop();
 ```
 
 * ```start()``` - Will start the audio stream using the initialized object.
 
 ```dart
-_flutterRadioPlayer.start()
+ FlutterRadio.start();
 ```
 
 * ```pause()``` - Will pause the audio stream using the initialized object.
 
 ```dart
-_flutterRadioPlayer.pause()
+ FlutterRadio.pause();
 ```
 
-* ```next()``` - Will advance the player's active media-source to next if you have multiple sources setup.
+ 
 
-```dart
-_flutterRadioPlayer.next()
-```
-
-* ```previous()``` - Will fallback the player's active media-source to previous if you have multiple sources setup.
-
-```dart
-_flutterRadioPlayer.previous()
-```
-
-* ```setVolume(volumne)``` - Will set the player volume. Keep in mind that the plugin will adjust along with the system volume as well to give the best experience.
-
-```dart
-_flutterRadioPlayer.setVolume(0.25)
-```
 
 * If you are planing to keep track of the media-sources by your-self, you can use below.
 
@@ -212,10 +168,7 @@ _flutterRadioPlayer.setVolume(0.25)
 _flutterRadioPlayer.seekToMediaSource(position,  playWhenReady);
 ```
 
-## Did someone say ID3/Icy-Header info 🥳?
 
-Yes, we have support for Icy and Shoutcast ID3 data pulling as well if your stream supports it. Plugin push the contents through when you stream details change along with the
-track change. We have done our testing for this, but it's mainly over icecast only.
 
 ## iOS and Android Support
 
@@ -234,16 +187,11 @@ For your Android application you might want to add permissions in `AndroidManife
     </application>
 ```
 
-For your iOS application you need to enable it like this
 
-![xcode image](enabling-xcode-bg-service.png)
-
-Now that's not all. This plugin handles almost everything for you when it comes to `playing a single stream of audio`. From Player meta details to network interruptions,
-FRP handles it all with a sweat. Please refer the example to get an idea about what FRP can do.
 
 ## Support
 
-Please hit a like to plugin on pub if you used it and love it. put a ⭐️ my GitHub [repo](https://github.com/Sithira/FlutterRadioPlayer) and show me some ♥️ so i can keep working on this.
+Please hit a like to plugin on pub if you used it and love it. put a ⭐️ my GitHub [repo](https://github.com/Affog7/Web_Radio_Flutter_App) and show me some ♥️ so i can keep working on this.
 
 ### Found a bug ?
 
