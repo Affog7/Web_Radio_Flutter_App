@@ -45,6 +45,7 @@ This plugin utilises Android LocalBroadcaster and iOS Notification center for pu
 * `flutter_radio_error`
 * `flutter_radio_loading`
 
+
 ## Getting Started
 
 1. Add this to your package's pubspec.yaml file
@@ -52,21 +53,67 @@ This plugin utilises Android LocalBroadcaster and iOS Notification center for pu
 ```yaml
 dependencies:
   flutter_radio_player: ^2.X.X
+  flutter_radio: ^0.1.8
+  http: ^0.13.3
+  flutter_media_notification: ^1.2.6
+  volume: ^1.0.1
+  equalizer: ^0.0.2+2
+  flutter_xlider: ^3.4.0
+  preload_page_view: ^0.1.6
+  carousel_slider: ^3.0.0
+  record: ^2.1.1
+  path_provider: ^1.5.1
+  contactus: ^1.1.9
+  url_launcher: ^6.0.3
+  flutter_share_me: ^0.10.0
+  flutter_share: ^2.0.0
 ```
 
-2. Install it
+2. Install its
 
 ```shell script
 $ flutter pub get
 ```
 
-3. Import it
+3. Import its
 
 ```dart
-import 'package:flutter_radio_player/flutter_radio_player.dart';
+import 'package:flutter_radio/flutter_radio.dart';
+...
 ```
 
 4. Configure it
+
+````
+  Future<void> audioStart() async {
+    await FlutterRadio.audioStart();
+    MediaNotification.showNotification(
+        title: title, author: 'SION RADIO',isPlaying: false);
+  }
+````
+
+
+
+
+````
+ static const streamUrl ="https://www.radioking.com/play/sion-radio";
+FlutterRadio.playOrPause(url: streamUrl);
+````
+
+````
+ FlutterRadio.stop();
+ FlutterRadio.pause(url: streamUrl);
+````
+
+
+````
+void updateVolumes() async {
+    // get Max Volume
+    maxVol = await Volume.getMaxVol;
+    // get Current Volume
+    currentVol = await Volume.getVol;
+  }
+````
    Creat a new instance of the player. An `FlutterRadioPlayer` instance can play a
    single audio stream at a time. To create it, simply call the constructor.
    However, DO NOT make multiple instances of the service as FRP is using a `FOREGROUND SERVICE` to keep itself
