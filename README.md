@@ -11,10 +11,12 @@ SION RADIO
 
 # 
 <p align="center">
-  <img src="https://github.com/Affog7/Web_Radio_Flutter_App/blob/main/images/shot/1.png" width="350" title="">
-    <img src="https://github.com/Affog7/Web_Radio_Flutter_App/blob/main/images/shot/3.png" width="350" title="">
-    <img src="https://github.com/Affog7/Web_Radio_Flutter_App/blob/main/images/shot/5.png" width="350" title="">
-    <img src="https://github.com/Affog7/Web_Radio_Flutter_App/blob/main/images/shot/4.png" width="350" title="">
+  <img src="https://github.com/Affog7/Web_Radio_Flutter_App/blob/main/images/shot/1.png" width="250" title="Accueil">
+    <img src="https://github.com/Affog7/Web_Radio_Flutter_App/blob/main/images/shot/4.png" width="250" title="Fonctionnalités">
+    <img src="https://github.com/Affog7/Web_Radio_Flutter_App/blob/main/images/shot/5.png" width="250" title="Directives">
+    <img src="https://github.com/Affog7/Web_Radio_Flutter_App/blob/main/images/shot/7.png" width="250" title="Equalizer">
+    <img src="https://github.com/Affog7/Web_Radio_Flutter_App/blob/main/images/shot/8.png" width="250" title="Record/Enregistrement">
+      <img src="https://github.com/Affog7/Web_Radio_Flutter_App/blob/main/images/shot/6.png" width="250" title="Playlist">
 </p>
 Flutter radio plugin handles a single streaming media preciously. This plugin was developed with maximum usage in mind.
 Flutter Radio player enables Streaming audio content on both Android and iOS natively, as an added feature this plugin supports
@@ -97,7 +99,7 @@ FlutterRadio.playOrPause(url: streamUrl);
  *MediaNotification* is the plugin that allows us to display a notification of the stream playback.
  The *showNotification()* method which takes the title of the stream being broadcast as a parameter,...
   **isPlaying**: indicates the playing status:
-    <img src="https://github.com/Affog7/Web_Radio_Flutter_App/blob/main/images/shot/notification.png" width="350" title="">
+    <img src="https://github.com/Affog7/Web_Radio_Flutter_App/blob/main/images/shot/noification.png" width="350" title="">
 
   
 ```flutter
@@ -191,7 +193,6 @@ For your Android application you might want to add permissions in `AndroidManife
 ```
 
 
-
 ## Support
 
 Please hit a like to plugin on pub if you used it and love it. put a ⭐️ my GitHub [repo](https://github.com/Affog7/Web_Radio_Flutter_App) and show me some ♥️ so i can keep working on this.
@@ -199,3 +200,6 @@ Please hit a like to plugin on pub if you used it and love it. put a ⭐️ my G
 ### Found a bug ?
 
 Please feel free to throw in a pull request. Any support is warmly welcome.
+
+### CONTRIBUTOR
+* [Augustin AFFOGNON](https://www.linkedin.com/in/augustin-affognon-54a867248/)
