@@ -201,5 +201,8 @@ Please hit a like to plugin on pub if you used it and love it. put a ⭐️ my G
 
 Please feel free to throw in a pull request. Any support is warmly welcome.
 
-## CONTRIBUTOR
+## Contributor
 * [Augustin AFFOGNON](https://www.linkedin.com/in/augustin-affognon-54a867248/)
+
+## License
+* [MIT](https://github.com/Affog7/Web_Radio_Flutter_App/blob/main/LICENSE)
