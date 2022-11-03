@@ -93,39 +93,42 @@ import 'package:flutter_radio/flutter_radio.dart';
 FlutterRadio.playOrPause(url: streamUrl);
 ````
 
- This function is the one that starts the radio when the application is launched
+ * This function is the one that starts the radio when the application is launched
  *MediaNotification* is the plugin that allows us to display a notification of the stream playback.
  The *showNotification()* method which takes the title of the stream being broadcast as a parameter,...
-  **isPlaying**: indicates the playing status
-````
+  **isPlaying**: indicates the playing status:
+    <img src="https://github.com/Affog7/Web_Radio_Flutter_App/blob/main/images/shot/notification.png" width="350" title="">
+
+  
+```flutter
   Future<void> audioStart() async {
     await FlutterRadio.audioStart();
     MediaNotification.showNotification(
         title: title, author: 'SION RADIO',isPlaying: false);
   }
-````
+```
 
 * Some other stream processing functions: *stop()* to stop a playback (this is also used to disconnect the stream)
 
-````
+```flutter
  FlutterRadio.stop();
  FlutterRadio.pause(url: streamUrl);
-````
+```
 
 
 * Sound management and mainly the volume managed by the *Volume* plugin (at the launch of the application the state of the system sound volume is retrieved)
 
-````
+```dart
 void updateVolumes() async {
     // get Max Volume
     maxVol = await Volume.getMaxVol;
     // get Current Volume
     currentVol = await Volume.getVol;
   }
-````
+```
  
  * The change in sound volume is linked to the slider marking the volume on the application and vice versa
-```
+```dart
 Slider(
       activeColor: Color.fromARGB(150, 13, 150, 173),
 
