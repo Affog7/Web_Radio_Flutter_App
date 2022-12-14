@@ -25,9 +25,8 @@ class _ListPageState extends State<ListPage> {
           title: Text("Liste des émissions diffusées"),
           backgroundColor: Color.fromARGB(150, 13, 150, 173),
         ),
-         // drawer: drawer(),
 
-           body: Center(
+        body: Center(
         child: FutureBuilder<List>(
             future: fetchplays(),
             //appel de la fonction depuis le serveur kingRadio
