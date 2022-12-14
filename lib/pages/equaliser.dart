@@ -41,8 +41,6 @@ class _SettingAppState extends State<SettingApp> {
           title: Text("EQUALISEUR SION RADIO"),
           backgroundColor: Color.fromARGB(150, 13, 150, 173),
         ),
-
-        //drawer: drawer(),
         body: ListView(
           children: [
             SizedBox(height: 10.0),
@@ -146,8 +144,7 @@ class _CustomEQState extends State<CustomEQ> {
               child: _buildPresets(),
             ),
           ],
-        )
-            : CircularProgressIndicator();
+        ): CircularProgressIndicator();
       },
     );
   }
