@@ -79,7 +79,7 @@ _init();
     await FlutterRadio.audioStart();
    // isPlaying=true;
     MediaNotification.showNotification(
-        title: title, author: 'SION RADIO',isPlaying: false);
+        title: title, author: 'MA RADIO',isPlaying: false);
      //FlutterRadio.play(url: streamUrl);
     print('Audio Start OK');
   }
@@ -113,7 +113,7 @@ _init();
         barrierDismissible: false, //this means the user must tap a button to exit the Alert Dialog
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Bienvenue sur SION RADIO'),
+            title: Text('Bienvenue sur MA RADIO'),
             content: SingleChildScrollView(
               child: ListBody(
                 children: <Widget>[
@@ -123,7 +123,7 @@ _init();
                     child: Text("Version : 1.0"),
                   ),
                   Divider(),
-                  Text('Sion Radio est une web radio chrétienne pour l\’évangélisation des peuples du monde entier.\n'
+                  Text('MA RADIO est une web radio chrétienne pour l\’évangélisation des peuples du monde entier.\n'
                       'Au programme: de la musique chrétienne,  une grille d\'émissions variées et la diffusion de messages bibliques pour le perfectionnement des saints en vue de l\’édification du Corps de Christ à travers le monde. \n'
                       'Sion Radio veut faire de chaque Chrétien, un véritable disciple du Seigneur.\n'
                       'Avec Sion Radio, vous avez la possibilité de bâtir votre foi chrétienne en quelque lieu que vous soyez .\n'
@@ -148,7 +148,7 @@ _init();
     return new MaterialApp(
       home: new Scaffold(
         appBar: new AppBar(
-          title: const Text('SION RADIO',textAlign: TextAlign.center,
+          title: const Text('MA RADIO',textAlign: TextAlign.center,
             style: TextStyle(fontWeight: FontWeight.bold),overflow: TextOverflow.fade,),
           backgroundColor: Color.fromARGB(150, 13, 150, 173),
           actions: [
@@ -215,7 +215,7 @@ margin: EdgeInsets.all(12),
                                 FlutterRadio.pause(url: streamUrl);
                                 isPlaying = false;
                                 MediaNotification.showNotification(
-                                    title: title, author: 'SION RADIO',isPlaying: isPlaying);
+                                    title: title, author: 'MA RADIO',isPlaying: isPlaying);
                               });
                             },
                           ),
@@ -235,7 +235,7 @@ margin: EdgeInsets.all(12),
                                 FlutterRadio.playOrPause(url: streamUrl);
 
                                 MediaNotification.showNotification(
-                                    title: title, author: 'SION RADIO',isPlaying: isPlaying);
+                                    title: title, author: 'MA RADIO',isPlaying: isPlaying);
 
                               });
                             },
