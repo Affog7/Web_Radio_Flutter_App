@@ -35,7 +35,7 @@ class InitializationApp extends StatelessWidget {
         future: _initFuture,
         builder: (context, snapshot){
           if (snapshot.connectionState == ConnectionState.done){
-            return MyAppA(title: "SION RADIO");
+            return MyAppA(title: "MA RADIO");
           } else {
             return SplashScreen();
           }
