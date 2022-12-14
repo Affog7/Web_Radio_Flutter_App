@@ -17,10 +17,10 @@ class drawer extends StatelessWidget {
 
   Future<void> share() async {
     await FlutterShare.share(
-        title: 'SION RADIO',
+        title: 'MA RADIO',
         text: 'Jouez la radio qui vous donne de la joie',
-        linkUrl: "https://www.sionradiotv.cf",
-        chooserTitle: 'SION RADIO');
+        linkUrl: "https://www..cf",
+        chooserTitle: 'MA RADIO');
   }
 
   @override
@@ -33,7 +33,7 @@ class drawer extends StatelessWidget {
         barrierDismissible: false, //this means the user must tap a button to exit the Alert Dialog
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Bienvenue sur SION RADIO'),
+            title: Text('Bienvenue sur MA RADIO'),
             content: SingleChildScrollView(
               child: ListBody(
                 children: <Widget>[
