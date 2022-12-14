@@ -19,7 +19,7 @@ class _MyAppState extends State<Share> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('Share our radio'),
         ),
         body: Container(
           width: double.infinity,
@@ -32,7 +32,7 @@ class _MyAppState extends State<Share> {
                 child: Text('share to twitter'),
                 onPressed: () async {
                   var response = await FlutterShareMe().shareToTwitter(
-                      url: 'https://github.com/lizhuoyuan', msg: msg);
+                      url: 'https://github.com/Affog7', msg: msg);
                   if (response == 'success') {
                     print('navigate success');
                   }
@@ -56,7 +56,7 @@ class _MyAppState extends State<Share> {
                 child: Text('share to shareFacebook'),
                 onPressed: () {
                   FlutterShareMe().shareToFacebook(
-                      url: 'https://github.com/lizhuoyuan', msg: msg);
+                      url: 'https://github.com/Affog7', msg: msg);
                 },
               ),
               RaisedButton(
