@@ -47,11 +47,10 @@ class _SettingAppState extends State<SettingApp> {
             Center(
               child: Builder(
                 builder: (context) {
-                  return FlatButton.icon(
+                  return TextButton.icon(
                     icon: Icon(Icons.equalizer),
                     label: Text('Open device equalizer'),
-                    color: Color.fromARGB(150, 13, 150, 173),
-                    textColor: Colors.white,
+
                     onPressed: () async {
                       try {
                         await Equalizer.open(0);
@@ -60,7 +59,7 @@ class _SettingAppState extends State<SettingApp> {
                           behavior: SnackBarBehavior.floating,
                           content: Text('${e.message}\n${e.details}'),
                         );
-                        Scaffold.of(context).showSnackBar(snackBar);
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       }
                     },
                   );

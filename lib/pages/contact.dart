@@ -27,7 +27,7 @@ class Contact extends StatelessWidget {
             phoneNumber: '+33 0 754269037',
             website: 'https://',
             githubUserName: 'Affog7',
-            inkedinURL:'https://www.linkedin.com/in/augustin-affognon-54a867248/',
+            linkedinURL:'https://www.linkedin.com/in/augustin-affognon-54a867248/',
             tagLine: 'La radio du peuple',
             taglineColor: Colors.teal.shade100,
             //twitterHandle: '',

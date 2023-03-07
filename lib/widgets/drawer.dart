@@ -59,7 +59,7 @@ Divider(height: 12,),
               ),
             ),
             actions: <Widget>[
-              FlatButton(
+              TextButton(
                 child: Text('Quitter'),
                 onPressed: () {
                   Navigator.of(context).pop();

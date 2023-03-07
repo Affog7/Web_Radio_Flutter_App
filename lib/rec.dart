@@ -65,7 +65,7 @@ class RecorderExampleState extends State<RecorderExample> {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: new FlatButton(
+                    child: new TextButton(
                       onPressed: () {
                         switch (_currentStatus) {
                           case RecordingStatus.Initialized:
@@ -93,25 +93,25 @@ class RecorderExampleState extends State<RecorderExample> {
                         }
                       },
                       child: _buildText(_currentStatus),
-                      color: Colors.lightBlue,
+                      //color: Colors.lightBlue,
                     ),
                   ),
-                  new FlatButton(
+                  new TextButton(
                     onPressed:
                     _currentStatus != RecordingStatus.Unset ? _stop : null,
                     child:
                     new Icon(Icons.stop_circle_outlined,color: Colors.red,),
-                    color: Colors.lightBlue,
+                   // color: Colors.lightBlue,
                   ),
 
                   SizedBox(
                     width: 8,
                   ),
-                  new FlatButton(
+                  new TextButton(
                     onPressed: onPlayAudio,
                     child:
                     new Icon(Icons.play_circle_fill_sharp),
-                    color: Colors.lightBlue,
+                   // color: Colors.lightBlue,
                   ),
 
                 ],
@@ -165,7 +165,7 @@ class RecorderExampleState extends State<RecorderExample> {
           print(_currentStatus);
         });
       } else {
-        Scaffold.of(context).showSnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(
             new SnackBar(content: new Text("You must accept permissions")));
       }
     } catch (e) {

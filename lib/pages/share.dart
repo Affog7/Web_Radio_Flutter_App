@@ -28,7 +28,7 @@ class _MyAppState extends State<Share> {
             children: <Widget>[
 
               SizedBox(height: 30),
-              RaisedButton(
+              ElevatedButton (
                 child: Text('share to twitter'),
                 onPressed: () async {
                   var response = await FlutterShareMe().shareToTwitter(
@@ -38,28 +38,28 @@ class _MyAppState extends State<Share> {
                   }
                 },
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text('share to WhatsApp'),
                 onPressed: () {
                   FlutterShareMe()
                       .shareToWhatsApp(base64Image: base64Image, msg: msg);
                 },
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text('share to WhatsApp Business'),
                 onPressed: () {
                   FlutterShareMe()
                       .shareToWhatsApp4Biz(base64Image: base64Image, msg: msg);
                 },
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text('share to shareFacebook'),
                 onPressed: () {
                   FlutterShareMe().shareToFacebook(
                       url: 'https://github.com/Affog7', msg: msg);
                 },
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text('share to System'),
                 onPressed: () async {
                   var response = await FlutterShareMe().shareToSystem(msg: msg);

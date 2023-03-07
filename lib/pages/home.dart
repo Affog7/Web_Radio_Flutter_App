@@ -67,7 +67,8 @@ _init();
     if (await FlutterAudioRecorder.hasPermissions) {
 
     } else {
-      Scaffold.of(context).showSnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(
+
           new SnackBar(content: new Text("You must accept permissions")));
     }
   }
@@ -134,7 +135,7 @@ _init();
               ),
             ),
             actions: <Widget>[
-              FlatButton(
+              ElevatedButton(
                 child: Text('Quitter'),
                 onPressed: () {
                   Navigator.of(context).pop();
